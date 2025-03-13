@@ -4,7 +4,7 @@ async function SignupLogic(username, email, password, confirmPassword) {
     if (password && confirmPassword) {
         if (password === confirmPassword) {
             try {
-                const response = await fetch('http://127.0.0.1:8000/user/v1/signup/', {
+                const response = await fetch('https://fluttering-roxanna-wfdhammy-7ab84b37.koyeb.app/user/v1/signup/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
