@@ -4,7 +4,7 @@ async function SignupLogic(username, email, password, confirmPassword) {
     if (password && confirmPassword) {
         if (password === confirmPassword) {
             try {
-                const response = await fetch('http://localhost:8000/user/signup', {
+                const response = await fetch('http://127.0.0.1:8000/user/v1/signup/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -18,11 +18,11 @@ async function SignupLogic(username, email, password, confirmPassword) {
 
                 const data = await response.json();
 
-                if (data.success) {
+                if (data) {
                     alert("Registration successful!");
-                    localStorage.setItem('user_id', data.user.id);
+                    localStorage.setItem('user_id', data.id);
                 } else {
-                    alert(data.message);
+                    alert("Signup failed!");
                 }
             } catch (error) {
                 alert("An error occurred while signing up");
